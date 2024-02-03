@@ -1,1 +1,1 @@
-# sensei -server
+# sensei - server
