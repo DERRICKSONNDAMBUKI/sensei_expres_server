@@ -1,8 +1,6 @@
 const { users, userById, updateUser, deleteUser, profilePhotoUpload, profilePhoto } = require('../../controllers/user/user.controller')
 const { requireSignin, hasAuthorization } = require('../../middlewares/auth.middleware')
-
 const { photoUpload } = require('../../services/photoUpload')
-
 const router = require('express').Router()
 
 router.get('/', users)
@@ -12,7 +10,7 @@ router.route('/:userId') // add hasAuthorization
         //  hasAuthorization,
         userById)
     .put(requireSignin,
-        photoUpload.single("profilePhoto"),
+        photoUpload.single("photoUrl"),
         // hasAuthorization, 
         updateUser
     )
